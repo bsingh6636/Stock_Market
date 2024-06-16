@@ -21,7 +21,7 @@ export const fetchStockData = async (symbol, interval) => {
 };
 export const fetchStockDataIntra = async (symbol, interval) => {
   const apiKey = 'YV71V1YNUTSZU2YV';
-   const url = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&outputsize=full&apikey=YV71V1YNUTSZU2YV`;
+   const url = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&outputsize=full&apikey=${apiKey}`;
    try {
      const response = await fetch(url);
      if (!response.ok) {

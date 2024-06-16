@@ -6,6 +6,7 @@ import { PiTelevisionThin } from "react-icons/pi";
 import { MdBookmarkAdd } from "react-icons/md";
 import { useDispatch, useSelector } from 'react-redux';
 import { changeTheme } from './utils/theme';
+import { Link } from 'react-router-dom';
 const Header = () => {
   const dispatch = useDispatch()
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -43,7 +44,7 @@ const Header = () => {
         </div>
 
         <div className='flex flex-row mt-10 items-center mx-3 bg-slate-700 text-slate-500 rounded-3xl h-11'>
-          <IoSearch className='m-4' />
+          <Link to="/search">  <IoSearch className='m-4' /></Link>
         </div>
 
         <div className='flex flex-row mt-10 items-center mx-3 ml-20 bg-slate-700 text-slate-500 rounded-3xl h-11'>

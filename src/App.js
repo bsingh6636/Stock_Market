@@ -6,6 +6,7 @@ import NavBar from './components/NavBar';
 import { BrowserRouter as Router,Routes ,Route} from 'react-router-dom';
 import User from './components/User';
 import {  useSelector } from 'react-redux';
+import Search from './components/Search';
 
 
 
@@ -29,6 +30,7 @@ function App() {
       <Routes>
       <Route path="/" element={<Body />} />
       <Route path="/user" element={<User />} />
+      <Route path="/search" element={<Search/>}/>
       </Routes>
       </div>
       </Router>
