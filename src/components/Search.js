@@ -35,12 +35,12 @@ const Search = () => {
   };
 
   return (
-    <div className="stock-info-container bg-gray-800 mt-20 m-10 p-10 items-center flex flex-col justify-center">
+    <div className="stock-info-container bg-gray-800 mt-20 m-10 p-10 items-center flex flex-col justify-center h-[500px]">
      <div>
      <form onSubmit={handleSubmit}>
         <input
-          type="text" value={symbol} onChange={handleChange} ref={value} placeholder="Enter stock symbol"
-          required className='m-3 p-3 rounded-lg text-black'
+          type="text" value={symbol} onChange={handleChange} ref={value} placeholder="Enter symbol (e.g AAPL)"
+          required className='m-3 p-3 rounded-lg text-black w-52'
         />
         <button type="submit" className='m-3 p-3 rounded-lg bg-green-300'>Get Stock Info</button>
       </form>

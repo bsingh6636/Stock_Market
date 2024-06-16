@@ -1,15 +1,21 @@
+import { onAuthStateChanged } from 'firebase/auth';
 import React, { useState, useEffect } from 'react'
 import { IoIosHome } from "react-icons/io";
 import { IoBookSharp, IoSearch, IoSettings } from "react-icons/io5";
 import { MdOutlineBookmarks } from "react-icons/md";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { auth } from '../functions/firebase';
+import { addUser } from './utils/userSlice';
 
 const NavBar = () => {
+  const dispatch =useDispatch()
+  
   const borderColors = ['border-red-500', 'border-blue-500', 'border-green-500', 'border-yellow-500'];
   const [currentBorderColor, setCurrentBorderColor] = useState(borderColors[0]);
   const [isDarkMode, setisDarkMode] = useState(true)
   const DarkMode = useSelector(store => store.theme.isDarkMode)
+ 
 
   useEffect(() => {
     setisDarkMode(DarkMode)
@@ -27,6 +33,30 @@ const NavBar = () => {
     // Cleanup interval on component unmount
     return () => clearInterval(timer);
     // eslint-disable-next-line
+  }, []);
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/auth.user
+
+        const { uid, email, displayName, photoURL } = user;
+        dispatch(
+          addUser({
+            uid: uid,
+            email: email,
+            displayName: displayName,
+            photoURL: photoURL,
+          })
+        );
+        // navigate("/browse");
+      } else {
+        // User is signed out
+        // ...
+        // dispatch(removeUser());
+        // navigate("/");
+      }
+    });
   }, []);
 
   return (
