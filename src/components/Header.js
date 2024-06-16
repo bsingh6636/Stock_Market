@@ -1,14 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaCompass, FaSun, FaMoon } from "react-icons/fa";
 import { IoSearch } from "react-icons/io5";
 import { FcApproval } from "react-icons/fc";
 import { PiTelevisionThin } from "react-icons/pi";
 import { MdBookmarkAdd } from "react-icons/md";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { changeTheme } from './utils/theme';
 const Header = () => {
   const dispatch = useDispatch()
   const [isDarkMode, setIsDarkMode] = useState(true);
+  const DarkMode = useSelector(store=>store.theme.isDarkMode)  
+  useEffect(() => {
+    setIsDarkMode(DarkMode)
+  
+  }, [DarkMode]);
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
     dispatch(changeTheme())
@@ -18,9 +23,9 @@ const Header = () => {
   const month = date.toLocaleString('default', { month: 'long' });
   const dayName = date.toLocaleString('default', { weekday: 'long' });
   return (
-    <div className='bg-slate-950 max-w-max flex justify-between '>
+    <div className={` max-w-max flex justify-between ${isDarkMode ? 'bg-slate-950' : 'bg-white '}`} >
       <div className='mt-6'>
-        <h1 className='text-white text-2xl font-serif p-4 flex items-center'>Hello, Jane <FcApproval className='ml-2' /></h1>
+        <h1 className=' text-2xl font-serif p-4 flex items-center'>Hello, Jane <FcApproval className='ml-2' /></h1>
         <h4 className='text-slate-400 p-4'>{dayName}, {month} {day}</h4>
       </div>
       <div className='flex flex-row justify-end flex-grow ml-[600px]'>

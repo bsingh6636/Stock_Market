@@ -1,18 +1,25 @@
-
+import React, { useEffect, useState } from 'react'
 import './App.css';
 import Body from './components/Body';
 import Header from './components/Header';
 import NavBar from './components/NavBar';
 import { BrowserRouter as Router,Routes ,Route} from 'react-router-dom';
 import User from './components/User';
-import { Provider } from 'react-redux';
-import appStore from './components/utils/appStore';
+import {  useSelector } from 'react-redux';
+
 
 
 function App() {
+  const [isDarkMode,setisDarkMode] =useState(true)
+  const DarkMode = useSelector(store=>store.theme.isDarkMode)
+  
+  useEffect(() => {
+    setisDarkMode(DarkMode)
+  
+  }, [DarkMode]);
   return (
-    <Provider store={appStore}>
-    <div className="App flex flex-row bg-slate-950">
+    
+    <div className={`App flex flex-row ${isDarkMode ? 'bg-slate-950 text-white' : 'bg-gray-400 text-black'}`}>
       <Router>
       <div>
       <NavBar/>
@@ -26,7 +33,7 @@ function App() {
       </div>
       </Router>
      </div>
-    </Provider>
+   
   );
 }
 

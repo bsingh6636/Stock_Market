@@ -32,7 +32,7 @@ const SentimentIndicator = () => {
             </div>
             <div className="mb-8 px-8 pb-5">
                 <h1 className="text-sm my-2 mb-4">What you need to know today</h1>
-                <span className="text-white font-semibold ">{sentimentData.title}</span>
+                <span className=" font-semibold ">{sentimentData.title}</span>
             </div>
 
         </div>

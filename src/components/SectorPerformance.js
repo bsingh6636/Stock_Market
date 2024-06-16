@@ -18,7 +18,7 @@ const SectorPerformance = () => {
                 console.error("Failed to fetch secotr performance data", error);
             }
         }
-        // getStockPerformance()
+        getStockPerformance()
     },[])
 
     const getBackgroundColor = (percentage) => {
@@ -42,7 +42,7 @@ const SectorPerformance = () => {
       };
    return !sectorPerformance ? <Loading/>  :
     (
-        <div className='bg-black text-white rounded-lg p-5 w-full max-w-4xl mx-auto mt-10'>
+        <div className='bg-black  rounded-lg p-5 w-full max-w-4xl mx-auto mt-10'>
           <div className='flex justify-between font-bold mb-8'>
             <h1 className='font-extrabold'>Sector Performance</h1>
             <h4 className='font-extralight'>% Price Change</h4>

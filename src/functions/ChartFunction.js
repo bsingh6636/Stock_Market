@@ -2,9 +2,7 @@
 
 
 export const fetchStockData = async (symbol, interval) => {
-
- 
-  const apiKey = 'YV71V1YNUTSZU2YV';
+ const apiKey = 'YV71V1YNUTSZU2YV';
   const url = `https://www.alphavantage.co/query?function=TIME_SERIES_${interval}_ADJUSTED&symbol=${symbol}&outputsize=10&apikey=${apiKey}`;
   try {
     const response = await fetch(url);
@@ -20,9 +18,24 @@ export const fetchStockData = async (symbol, interval) => {
     console.error('Failed to fetch data:', error);
     return null;
   }
- 
-  
 };
+export const fetchStockDataIntra = async (symbol, interval) => {
+  const apiKey = 'YV71V1YNUTSZU2YV';
+   const url = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&outputsize=full&apikey=YV71V1YNUTSZU2YV`;
+   try {
+     const response = await fetch(url);
+     if (!response.ok) {
+       throw new Error('Network response was not ok');
+     }
+     const data = await response.json();
+     console.log(data)
+     console.log("data",data[`Time Series (5min)`])
+     return data[`Time Series (5min)`]
+   } catch (error) {
+     console.error('Failed to fetch data:', error);
+     return null;
+   }
+ };
 
 
 export const processData = (data) => {

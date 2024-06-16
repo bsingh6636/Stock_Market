@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import Loading from './Loading'
-import RealTimeChart from './RealTimeChart'
-
+import { useDispatch } from 'react-redux'
+import { newSymbol } from './utils/symbol'
 const Markets = () => {
+    const dispatch =useDispatch()
     const [finanacilaModelData, setFinancilModelData] = useState("")
+    const handlesymbol = (symbol) => {
+        console.log(symbol)
+        dispatch(newSymbol(symbol))
+    }
     useEffect(() => {
         const getMarketData = async () => {
             try {
@@ -35,7 +40,7 @@ const Markets = () => {
         }
     };
     return finanacilaModelData.length < 10 ? <Loading /> : (
-        <div className='bg-black text-white rounded-lg mt-10 p-8 m-5 w-[450px]'>
+        <div className='bg-black  rounded-lg mt-10 p-8 m-5 w-[450px]'  >
             <div className='flex flex-row my-1 '>
                 <h1 className='font-medium w-1/4'>Markets</h1>
                 <h1 className='font-medium w-1/4 text-center'>Price</h1>
@@ -44,7 +49,11 @@ const Markets = () => {
             </div>
             <div className='mt-7'>
                 {finanacilaModelData.map((financialModelData) => (
-                    <div key={financialModelData.symbol} className='flex flex-row my-1'>
+                    <div
+                        key={financialModelData.symbol}
+                        className='flex flex-row my-1 cursor-pointer'
+                        onClick={() => handlesymbol(financialModelData.symbol)}
+                    >
                         <h1 className='font-medium w-1/4'>{financialModelData.symbol}</h1>
                         <h1 className='w-1/4 text-center'>{financialModelData.price}</h1>
                         <h1 className='w-1/4 text-center'>{financialModelData.change}</h1>
@@ -53,6 +62,7 @@ const Markets = () => {
                         </span>
                     </div>
                 ))}
+
             </div>
 
         </div>
