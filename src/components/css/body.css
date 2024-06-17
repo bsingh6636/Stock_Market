@@ -12,8 +12,19 @@
 
   @media (max-width : 450px) {
      .sectorPerofrmance{
-        width: 305px ;
+        width: 0px ;
         margin-left: -30px;
 
+     }
+     .market{
+        width: 280px;
+        margin-left: -20px;
+        padding-right: 0px;
+        margin-right: 0px;
+     }
+     .realtimeChart{
+        width: 300px;
+        margin-left: -30px;
+        height: 250px;
      }
   }
