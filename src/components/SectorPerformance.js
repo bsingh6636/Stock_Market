@@ -49,12 +49,12 @@ const SectorPerformance = () => {
       };
    return !sectorPerformance ? <Loading/>  :
     (
-        <div className={` rounded-lg p-5 w-full max-w-4xl mx-auto mt-10  hover:scale-110 transition-transform ${isDarkMode ? 'bg-black' : 'bg-gray-300' }`}>
-          <div className='flex justify-between font-bold mb-8'>
+        <div className={`sectorPerofrmance rounded-lg p-5 w-full max-w-4xl mx-auto mt-10  hover:scale-110 transition-transform ${isDarkMode ? 'bg-black' : 'bg-gray-300  ' }`}>
+          <div className='flex justify-between font-bold mb-8 max-sm:w-72'>
             <h1 className='font-extrabold'>Sector Performance</h1>
             <h4 className='font-extralight'>% Price Change</h4>
           </div>
-          <div className='grid grid-cols-2 gap-x-10'>
+          <div className='grid grid-cols-2 gap-x-10 max-sm:w-72 max-sm:flex max-sm:flex-col'>
             {sectorPerformance.slice(0, 6).map((data, index) => (
               <div key={index} className='flex justify-between mb-1'>
                 <h1 className='m-1 p-1'>{data.sector}</h1>

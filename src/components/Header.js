@@ -66,7 +66,7 @@ useEffect(() => {
         <h1 className='text-2xl font-serif p-4 flex items-center max-sm:p-2 '>Hello, {userName} <FcApproval className='ml-2 ' /></h1>
         <h4 className='text-slate-400 p-4 '>{dayName}, {month} {day}</h4>
       </div>
-      <div className='headerdiv12 flex flex-row justify-end flex-grow ml-[450px] max-sm:ml-[0px] max-lg:ml-[100px] '> 
+      <div className='headerdiv12 flex flex-row justify-end flex-grow ml-[450px] max-sm:ml-[-50px] max-lg:ml-[100px] '> 
         <div className='flex flex-row mt-10 items-center bg-slate-700 rounded-3xl h-11 cursor-pointer hover:scale-150 transition-transform' onClick={toggleDarkMode}>
           {isDarkMode ? <FaSun className='m-4 ' /> : <FaMoon className='m-4 ' />}
         </div>
