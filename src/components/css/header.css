@@ -1,0 +1,17 @@
+@media (max-width : 950px) {
+   .headerdiv12{
+    margin-left: 0px;
+   }
+}
+
+@media (max-width : 1100px) {
+    .headerdiv12{
+     margin-left: 150px;
+    }
+ }
+
+ @media (max-width : 1300px) {
+    .headerdiv12{
+     margin-left: 200px;
+    }
+ }

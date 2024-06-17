@@ -3,9 +3,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { formvalidate } from '../functions/formvalidate';
 import { auth } from '../functions/firebase';
-import {  useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import SignedInUser from './SignedInUser';
+import "./css/user.css"
 
 const User = () => {
 
@@ -26,7 +27,6 @@ const User = () => {
         setIsLogin(!isLogin); // Function to toggle between login and signup forms
     };
     const formvalidation = () => {
-
         const formvalidatione = formvalidate(email.current.value, password.current.value);
         setformvalidateresult(formvalidatione);
         if (formvalidatione) return;
@@ -57,7 +57,7 @@ const User = () => {
                     updateProfile(auth.currentUser, {
                         displayName: displayName.current.value, photoURL: "https://avatars.githubusercontent.com/u/78442057?v=4"
                     }).then(() => {
-                        
+
                         // dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }));
                         // ...
                     }).catch((error) => {
@@ -75,27 +75,31 @@ const User = () => {
         }
     }
 
+
     return userDetails ? <SignedInUser user={userDetails} /> : (
-        <div className="min-h-screen  flex flex-col justify-center items-center mt-[-50px]">
-            <div className="bg-gray-800 rounded-lg p-8 shadow-xl w-96">
+        <div  className="min-h-screen  flex flex-col justify-center items-center mt-[-150px] ">
+            <div className="div2 bg-gray-800 rounded-lg p-8 shadow-xl w-96 ">
                 <h2 className="text-3xl font-bold mb-4 text-white">{isLogin ? 'Login' : 'Sign Up'}</h2>
                 <form className="flex flex-col space-y-4">
                     {/* Form fields for login or sign up */}
                     {!isLogin && (
                         <div className="flex flex-col">
-                          
-                            <input type="Name" ref={displayName} placeholder='Enter Name' id="Name" className="p-3 m-2 w-full border border-white placeholder-zinc-50 font-semibold bg-black bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" />
+
+                            <input type="Name" ref={displayName} placeholder='Enter Name' id="Name" className="p-3 m-2 w-full border border-white
+                             placeholder-zinc-50   font-semibold  bg-black bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" />
                         </div>
                     )}
                     <div className="flex flex-col">
-                        <input placeholder='Enter Email' ref={email} type="email" id="email" className="p-3 m-2 w-full border border-white placeholder-zinc-50 font-semibold bg-black bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" />
+                        <input placeholder='Enter Email' ref={email} type="email" id="email" className="p-3 m-2 w-full border border-white placeholder-zinc-50
+                         font-semibold bg-black bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" />
                     </div>
                     <div className="relative">
                         <input
                             type={showPassword ? 'text' : 'password'}
                             placeholder='Password'
                             ref={password}
-                            className='p-3 m-2 w-full border border-white placeholder-zinc-50 font-semibold bg-black bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'
+                            className='p-3 m-2 w-full border border-white placeholder-zinc-50 font-semibold bg-black bg-opacity-80 focus:outline-none focus:ring-2
+                             focus:ring-offset-2 focus:ring-blue-500'
                         />
                         <button
                             type="button"
@@ -112,10 +116,11 @@ const User = () => {
                     {formvalidate && <p className='pl-3 py-1 text-red-600  font-bold'>{formvalidateresult}</p>}
 
 
-                    <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors duration-300" onClick={(e) => {
-                        e.preventDefault();
-                        formvalidation();
-                    }}>
+                    <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors duration-300"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            formvalidation();
+                        }}>
                         {isLogin ? 'Login' : 'Sign Up'}
                     </button>
                 </form>

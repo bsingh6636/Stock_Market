@@ -7,7 +7,7 @@ import { BrowserRouter as Router,Routes ,Route} from 'react-router-dom';
 import User from './components/User';
 import {  useSelector } from 'react-redux';
 import Search from './components/Search';
-
+import "./components/css/header.css"
 
 
 function App() {
