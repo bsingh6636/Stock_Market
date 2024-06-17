@@ -7,7 +7,7 @@ import './css/body.css'
 
 const Body = () => {
   return (
-    <div className=''>
+    <div className='body'>
       <div className='flex flex-row max-sm:flex-col'>
         <SentimentIndicator />
         <SectorPerformance />

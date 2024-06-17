@@ -1,26 +1,40 @@
-@media (max-width : 950px) {
-    
+@media (max-width : 650px) {
+    .sectorPerofrmance{
+        width: 400px;
+        margin-left: 0px;
+    }
  }
  
  @media (max-width : 1100px) {
-    
+    .sectorPerofrmance{
+        width: 500px;    
+    }
+     .realtimeChart{
+        width: 400px;
+        margin-left: -30px;
+        height: 350px;
+     }
   }
  
-  @media (max-width : 1300px) {
-     
+  @media (max-width : 1450px) {
+    .sentimentindicator{
+        width: 300px;
+    }
+   
   }
 
   @media (max-width : 450px) {
      .sectorPerofrmance{
-        width: 0px ;
+        width: 310px ;
         margin-left: -30px;
 
      }
      .market{
-        width: 280px;
+        width: 300px;
         margin-left: -20px;
         padding-right: 0px;
         margin-right: 0px;
+        margin-top: 40px;
      }
      .realtimeChart{
         width: 300px;

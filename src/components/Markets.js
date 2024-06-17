@@ -44,11 +44,11 @@ const Markets = () => {
     };
     return finanacilaModelData.length < 10 ? <Loading /> : (
         <div className={`market rounded-lg mt-10 p-8 m-5 w-[450px] hover:scale-110 transition-transform ${isDarkMode ? 'bg-black' : 'bg-gray-300'} 
-         max-sm:m-1 `}  >
+         max-sm:m-1  max-xl:w-[400px]`}  >
             <div className='flex flex-row my-1 '>
                 <h1 className='font-medium w-1/4 '>Markets</h1>
                 <h1 className='font-medium w-1/4 text-center'>Price</h1>
-                <h1 className='w-1/4 text-center max-sm:hidden'>Changes</h1>
+                <h1 className='w-1/4 text-center  max-xl:hidden'>Changes</h1>
                 <span className='w-1/4 text-right'>% Changes</span>
             </div>
             <div className='mt-7'>
@@ -60,7 +60,7 @@ const Markets = () => {
                     >
                         <h1 className='font-medium w-1/4'>{financialModelData.symbol}</h1>
                         <h1 className='w-1/4 text-center'>{financialModelData.price}</h1>
-                        <h1 className='w-1/4 text-center max-sm:hidden'>{financialModelData.change}</h1>
+                        <h1 className='w-1/4 text-center  max-xl:hidden'>{financialModelData.change}</h1>
                         <span className={`w-1/4 text-right ${getTextColor(financialModelData.changesPercentage)}`}>
                             {financialModelData.changesPercentage}
                         </span>
