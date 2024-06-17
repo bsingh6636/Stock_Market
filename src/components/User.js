@@ -3,12 +3,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { formvalidate } from '../functions/formvalidate';
 import { auth } from '../functions/firebase';
-import { useDispatch, useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import SignedInUser from './SignedInUser';
 
 const User = () => {
-    const dispatch = useDispatch()
+
     const [isLogin, setIsLogin] = useState(true); // State to toggle between login and signup
     const email = useRef(""); const password = useRef(""); const displayName = useRef("");
     const [showPassword, setShowPassword] = useState(false);
@@ -52,13 +52,12 @@ const User = () => {
             createUserWithEmailAndPassword(auth, email.current.value, password.current.value, displayName.current.value)
                 .then((userCredential) => {
                     // Signed up  
-                    const user = userCredential.user;
+                    // const user = userCredential.user;
                     // console.log(user)
                     updateProfile(auth.currentUser, {
                         displayName: displayName.current.value, photoURL: "https://avatars.githubusercontent.com/u/78442057?v=4"
                     }).then(() => {
-                        console.log(user)
-                        const { uid, email, displayName, photoURL } = user;
+                        
                         // dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }));
                         // ...
                     }).catch((error) => {

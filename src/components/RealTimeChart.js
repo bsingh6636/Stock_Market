@@ -96,7 +96,7 @@ const RealTimeChart = () => {
         });
       }
     };
-
+    // eslint-disable-next-line
     interval == "Intraday" ? fetchDataIntra() : fetchData()
 
   }, [interval,symbol]);
