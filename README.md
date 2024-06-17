@@ -9,11 +9,11 @@
 #### Installation
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/stock-market-dashboard.git
+   git clone https://github.com/bsingh6636/Stock_Market
    ```
 2. Navigate to the project directory:
    ```
-   cd stock-market-dashboard
+   cd Stock-Market
    ```
 3. Install necessary packages:
    ```
