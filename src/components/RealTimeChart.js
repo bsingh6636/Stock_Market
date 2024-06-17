@@ -24,16 +24,15 @@ ChartJS.register(
 );
 const RealTimeChart = () => {
   const [interval, setInterval] = useState("Intraday")
-  const [symbol,setSymbol] =useState("AAPL")
+  const [symbol, setSymbol] = useState("AAPL")
   const storedSymbol = useSelector(store => store.symbol.symbol);
   const DarkMode = useSelector(store => store.theme.isDarkMode)
   const [isDarkMode, setIsDarkMode] = useState(true);
   useEffect(() => {
-      setIsDarkMode(DarkMode)
-  
-    }, [DarkMode]);
+    setIsDarkMode(DarkMode)
+
+  }, [DarkMode]);
   useEffect(() => {
-    console.log(storedSymbol)
     setSymbol(storedSymbol);
   }, [storedSymbol]);
   const [data, setData] = useState({
@@ -52,13 +51,9 @@ const RealTimeChart = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log("not intra")
       const rawData = await fetchStockData(symbol, interval)
-      console.log(rawData)
       if (rawData) {
         const processedData = processData(rawData);
-        console.log(processedData)
-        console.log('here')
         const labels = processedData.map(item => item.date);
         const closePrices = processedData.map(item => item.close);
 
@@ -75,13 +70,9 @@ const RealTimeChart = () => {
     };
 
     const fetchDataIntra = async () => {
-      console.log(" intra")
       const rawData = await fetchStockDataIntra(symbol, interval)
-      console.log(rawData)
       if (rawData) {
         const processedData = processData(rawData);
-        console.log(processedData)
-        console.log('here')
         const labels = processedData.map(item => item.date);
         const closePrices = processedData.map(item => item.close);
 
@@ -99,7 +90,7 @@ const RealTimeChart = () => {
     // eslint-disable-next-line
     interval == "Intraday" ? fetchDataIntra() : fetchData()
 
-  }, [interval,symbol]);
+  }, [interval, symbol]);
   const getTimeUnit = (interval) => {
     switch (interval) {
       case '1D':
@@ -119,7 +110,7 @@ const RealTimeChart = () => {
 
   const timeUnit = getTimeUnit("1Y");
   return (
-    <div className={`w-[700px] h-[420px] rounded-lg mx-5 p-5 m-10  hover:scale-110 transition-transform ${isDarkMode ? 'bg-black' : 'bg-gray-300' }`}>
+    <div className={`w-[700px] h-[420px] rounded-lg mx-5 p-5 m-10  hover:scale-110 transition-transform ${isDarkMode ? 'bg-black' : 'bg-gray-300'}`}>
       <Line className='cursor-pointer'
         data={data}
         options={{
@@ -140,27 +131,27 @@ const RealTimeChart = () => {
         }}
       />
       <div className='flex m-5 justify-around pb-2'>
-      {console.log(interval)}
-      <h1 
-        className={`mx-2 cursor-pointer ${interval === "Intraday" ? "bg-blue-500 text-white p-2 rounded-lg" : "bg-transparent"}`} 
-        onClick={() => setInterval("Intraday")}
-      >
-        Daily
-      </h1>
-      <h1 
-        className={`mx-2 cursor-pointer ${interval === "Weekly" ? "bg-blue-500 text-white p-2 rounded-lg" : "bg-transparent"}`} 
-        onClick={() => setInterval("Weekly")}
-      >
-        Weekly
-      </h1>
-      <h1 
-        className={`mx-2 cursor-pointer ${interval === "Monthly" ? "bg-blue-500  text-white p-2 rounded-lg" : "bg-transparent"}`} 
-        onClick={() => setInterval("Monthly")}
-      >
-        Monthly
-      </h1>
-    </div>
-     
+
+        <h1
+          className={`mx-2 cursor-pointer ${interval === "Intraday" ? "bg-blue-500 text-white p-2 rounded-lg" : "bg-transparent"}`}
+          onClick={() => setInterval("Intraday")}
+        >
+          Daily
+        </h1>
+        <h1
+          className={`mx-2 cursor-pointer ${interval === "Weekly" ? "bg-blue-500 text-white p-2 rounded-lg" : "bg-transparent"}`}
+          onClick={() => setInterval("Weekly")}
+        >
+          Weekly
+        </h1>
+        <h1
+          className={`mx-2 cursor-pointer ${interval === "Monthly" ? "bg-blue-500  text-white p-2 rounded-lg" : "bg-transparent"}`}
+          onClick={() => setInterval("Monthly")}
+        >
+          Monthly
+        </h1>
+      </div>
+
     </div>
   );
 };

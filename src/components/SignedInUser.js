@@ -1,9 +1,8 @@
 import React from 'react';
 
 const SignedInUser = ({ user }) => {
-  console.log(user);
   const { uid, email, displayName, photoURL } = user;
-  console.log(uid, email, displayName, photoURL);
+
 
   return (
     <div className="min-h-screen flex flex-col justify-center items-center mt-[-50px]">

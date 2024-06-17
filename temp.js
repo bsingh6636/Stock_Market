@@ -21,25 +21,24 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-const RealTimeChart = ({ symbol ,interval }) => {
-    console.log(symbol,interval)
-    const [data, setData] = useState({
-      labels: [],
-      datasets: [
-        {
-          label: 'Stock Price',
-          data: [],
-          borderColor: 'rgba(75, 192, 192, 1)',
-          borderWidth: 2,
-          fill: false,
-          tension: 0.1,
-        },
-      ],
-    });
+const RealTimeChart = ({ symbol, interval }) => {
+  const [data, setData] = useState({
+    labels: [],
+    datasets: [
+      {
+        label: 'Stock Price',
+        data: [],
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 2,
+        fill: false,
+        tension: 0.1,
+      },
+    ],
+  });
 
   useEffect(() => {
     const fetchData = async () => {
-      const rawData = await fetchStockData(symbol,interval);
+      const rawData = await fetchStockData(symbol, interval);
       if (rawData) {
         const processedData = processData(rawData);
         console.log(processedData)

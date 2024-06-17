@@ -5,8 +5,7 @@ const symbolSlice=createSlice({
     initialState:{symbol:"AAPL"},
     reducers :{
         newSymbol :(state,action) =>{
-            console.log(state)
-            state.symbol = action.payload
+             state.symbol = action.payload
         }
     }
     
