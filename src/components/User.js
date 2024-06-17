@@ -77,8 +77,8 @@ const User = () => {
 
 
     return userDetails ? <SignedInUser user={userDetails} /> : (
-        <div  className="min-h-screen  flex flex-col justify-center items-center mt-[-150px] ">
-            <div className="div2 bg-gray-800 rounded-lg p-8 shadow-xl w-96 ">
+        <div  className="min-h-screen  flex flex-col justify-center items-center mt-[-150px] max-sm:ml-[-30px] ">
+            <div className="div2 bg-gray-800 rounded-lg p-8 shadow-xl w-96 max-sm:w-64 max-sm:p-5">
                 <h2 className="text-3xl font-bold mb-4 text-white">{isLogin ? 'Login' : 'Sign Up'}</h2>
                 <form className="flex flex-col space-y-4">
                     {/* Form fields for login or sign up */}

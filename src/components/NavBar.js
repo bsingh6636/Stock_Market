@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { auth } from '../functions/firebase';
 import { addUser } from './utils/userSlice';
-import "./css/navbar.css"
 
 const NavBar = () => {
   const dispatch =useDispatch()

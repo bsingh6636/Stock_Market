@@ -1,8 +1,9 @@
-@media (max-width : 650px) {
+@media (max-width : 700px) {
     .sectorPerofrmance{
         width: 400px;
         margin-left: 0px;
     }
+    
  }
  
  @media (max-width : 1100px) {
@@ -42,3 +43,4 @@
         height: 250px;
      }
   }
+ 

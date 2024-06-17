@@ -8,6 +8,7 @@ import User from './components/User';
 import {  useSelector } from 'react-redux';
 import Search from './components/Search';
 import "./components/css/header.css"
+import ErrorElement from './components/Error';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
       <Route path="/" element={<Body />} />
       <Route path="/user" element={<User />} />
       <Route path="/search" element={<Search/>}/>
+      <Route path="*" element={<ErrorElement/>}/>
       </Routes>
       </div>
       </Router>
