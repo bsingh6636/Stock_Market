@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import Loading from './Loading'
+import { useSelector } from 'react-redux';
 
 
 const SectorPerformance = () => {
+  const DarkMode = useSelector(store => store.theme.isDarkMode)
+  const [isDarkMode, setIsDarkMode] = useState(true);
+  useEffect(() => {
+      setIsDarkMode(DarkMode)
+  
+    }, [DarkMode]);
     const [sectorPerformance,setSectorPerformance] =useState(null)
     useEffect(()=>{
         const getStockPerformance = async () =>{
@@ -42,7 +49,7 @@ const SectorPerformance = () => {
       };
    return !sectorPerformance ? <Loading/>  :
     (
-        <div className='bg-black  rounded-lg p-5 w-full max-w-4xl mx-auto mt-10'>
+        <div className={` rounded-lg p-5 w-full max-w-4xl mx-auto mt-10  hover:scale-110 transition-transform ${isDarkMode ? 'bg-black' : 'bg-gray-300' }`}>
           <div className='flex justify-between font-bold mb-8'>
             <h1 className='font-extrabold'>Sector Performance</h1>
             <h4 className='font-extralight'>% Price Change</h4>

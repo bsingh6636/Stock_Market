@@ -18,3 +18,13 @@ Additionally, the dashboard stays updated with the latest performance of popular
 
 Designed for both novice and experienced investors, the Stock Market Dashboard serves as a powerful tool for staying informed about the stock market. Its intuitive design and real-time data make it an essential resource for anyone looking to navigate the complexities of the financial world.
 
+to run project , use  command npm install to intall packages , and npm run start to start the project
+used alphavnatage , financialmodelingprep api to fetch stock market update
+used chart.js , 'react-chartjs-2' import 'chartjs-adapter-moment' for chart 
+used redux for managing state of dark and white mode  along with user
+project consist of displaying username , along with home , search , login and logout button . 
+have sentiment indicator , latest stock market update 
+% increase or decrease in diffrent sector like health ,communication,industy
+lastest good stock with current price in USD , change value and change in percentage
+chart of latest project which can be viewed by clicking on then
+used google firebase for user authentication , username

@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux';
 
 const SentimentIndicator = () => {
     const [sentimentData, setSentimentData] = useState({
         title: "Apple, Nvidia Are The Most Overbought Stocks On Wall Street Amid AI Frenzy: Here Are Other Stocks With Potential For Pullback - Apple  ( NASDAQ:AAPL ) , Broadcom  ( NASDAQ:AVGO ) ",
         overall_sentiment_label: "Somewhat-bullish"
     });
+    const DarkMode = useSelector(store => store.theme.isDarkMode)
+    const [isDarkMode, setIsDarkMode] = useState(true);
+    useEffect(() => {
+        setIsDarkMode(DarkMode)
+    
+      }, [DarkMode]);
    useEffect(() => {
         const getSentiment = async () => {
             try {
@@ -26,7 +33,7 @@ const SentimentIndicator = () => {
         
   
     return (
-        <div className="bg-black rounded-lg h-full w-full md:w-96 mt-10 mx-5">
+        <div className={` rounded-lg h-full w-full md:w-96 mt-10 mx-5 hover:scale-110 transition-transform ${isDarkMode ? 'bg-black' : 'bg-gray-300' }`}>
             <div className="font-bold mb-8 px-8 py-16">
                 The markets are <span className="text-green-500">{sentimentData.overall_sentiment_label}</span>
             </div>

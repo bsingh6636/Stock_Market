@@ -26,11 +26,16 @@ const RealTimeChart = () => {
   const [interval, setInterval] = useState("Intraday")
   const [symbol,setSymbol] =useState("AAPL")
   const storedSymbol = useSelector(store => store.symbol.symbol);
+  const DarkMode = useSelector(store => store.theme.isDarkMode)
+  const [isDarkMode, setIsDarkMode] = useState(true);
+  useEffect(() => {
+      setIsDarkMode(DarkMode)
+  
+    }, [DarkMode]);
   useEffect(() => {
     console.log(storedSymbol)
     setSymbol(storedSymbol);
   }, [storedSymbol]);
-  console.log(symbol)
   const [data, setData] = useState({
     labels: [],
     datasets: [
@@ -114,7 +119,7 @@ const RealTimeChart = () => {
 
   const timeUnit = getTimeUnit("1Y");
   return (
-    <div className='w-[700px] h-[400px] bg-black rounded-lg mx-5 p-5 m-10  '>
+    <div className={`w-[700px] h-[420px] rounded-lg mx-5 p-5 m-10  hover:scale-110 transition-transform ${isDarkMode ? 'bg-black' : 'bg-gray-300' }`}>
       <Line className='cursor-pointer'
         data={data}
         options={{
@@ -135,12 +140,27 @@ const RealTimeChart = () => {
         }}
       />
       <div className='flex m-5 justify-around pb-2'>
-        {console.log(interval)}
-        <h1 className={`mx-2 cursor-pointer`} onClick={() => setInterval("Intraday")} >Daily</h1>
-        <h1 className='mx-2 cursor-pointer' onClick={() => setInterval("Weekly")}>Weekly</h1>
-        <h1 className='mx-2 cursor-pointer' onClick={() => setInterval("Monthly")}>Monthly</h1>
-      </div>
-      {console.log(symbol)}
+      {console.log(interval)}
+      <h1 
+        className={`mx-2 cursor-pointer ${interval === "Intraday" ? "bg-blue-500 text-white p-2 rounded-lg" : "bg-transparent"}`} 
+        onClick={() => setInterval("Intraday")}
+      >
+        Daily
+      </h1>
+      <h1 
+        className={`mx-2 cursor-pointer ${interval === "Weekly" ? "bg-blue-500 text-white p-2 rounded-lg" : "bg-transparent"}`} 
+        onClick={() => setInterval("Weekly")}
+      >
+        Weekly
+      </h1>
+      <h1 
+        className={`mx-2 cursor-pointer ${interval === "Monthly" ? "bg-blue-500  text-white p-2 rounded-lg" : "bg-transparent"}`} 
+        onClick={() => setInterval("Monthly")}
+      >
+        Monthly
+      </h1>
+    </div>
+     
     </div>
   );
 };

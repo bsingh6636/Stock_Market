@@ -13,11 +13,11 @@ const User = () => {
     const email = useRef(""); const password = useRef(""); const displayName = useRef("");
     const [showPassword, setShowPassword] = useState(false);
     const [formvalidateresult, setformvalidateresult] = useState(null)
-    const user = useSelector(store=>store.user)
-    const [userDetails,setUserDetails]=useState(null)
-    useEffect(()=>{
+    const user = useSelector(store => store.user)
+    const [userDetails, setUserDetails] = useState(null)
+    useEffect(() => {
         setUserDetails(user)
-    },[user])
+    }, [user])
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
@@ -75,8 +75,8 @@ const User = () => {
                 });
         }
     }
-    
-    return userDetails ? <SignedInUser user={userDetails}/> : (
+
+    return userDetails ? <SignedInUser user={userDetails} /> : (
         <div className="min-h-screen  flex flex-col justify-center items-center mt-[-50px]">
             <div className="bg-gray-800 rounded-lg p-8 shadow-xl w-96">
                 <h2 className="text-3xl font-bold mb-4 text-white">{isLogin ? 'Login' : 'Sign Up'}</h2>
@@ -84,18 +84,34 @@ const User = () => {
                     {/* Form fields for login or sign up */}
                     {!isLogin && (
                         <div className="flex flex-col">
-                            <label htmlFor="Name" className="text-white">Enter Name</label>
-                            <input type="Name" ref={displayName} id="Name" className="bg-gray-700 rounded-md py-2 px-3 mt-1 focus:outline-none focus:ring focus:border-blue-300" />
+                          
+                            <input type="Name" ref={displayName} placeholder='Enter Name' id="Name" className="p-3 m-2 w-full border border-white placeholder-zinc-50 font-semibold bg-black bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" />
                         </div>
                     )}
                     <div className="flex flex-col">
-                        <label htmlFor="email" className="text-white">Email</label>
-                        <input ref={email} type="email" id="email" className="bg-gray-700 rounded-md py-2 px-3 mt-1 focus:outline-none focus:ring focus:border-blue-300" />
+                        <input placeholder='Enter Email' ref={email} type="email" id="email" className="p-3 m-2 w-full border border-white placeholder-zinc-50 font-semibold bg-black bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" />
                     </div>
-                    <div className="flex flex-col">
-                        <label htmlFor="password" className="text-white">Password</label>
-                        <input ref={password} type="password" id="password" className="bg-gray-700 rounded-md py-2 px-3 mt-1 focus:outline-none focus:ring focus:border-blue-300" />
+                    <div className="relative">
+                        <input
+                            type={showPassword ? 'text' : 'password'}
+                            placeholder='Password'
+                            ref={password}
+                            className='p-3 m-2 w-full border border-white placeholder-zinc-50 font-semibold bg-black bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'
+                        />
+                        <button
+                            type="button"
+                            className='absolute right-3 top-1/2 transform -translate-y-1/2 h-9 w-9'
+                            onClick={togglePasswordVisibility}
+                        >
+                            {showPassword ? (
+                                <img src="https://res.cloudinary.com/djo21zbg6/image/upload/v1715459571/hidepassword_gfaoyi.svg" alt='Hide Password' />
+                            ) : (
+                                <img src="https://img.icons8.com/glassmorphism/48/visible.png" alt='Show Password' />
+                            )}
+                        </button>
                     </div>
+                    {formvalidate && <p className='pl-3 py-1 text-red-600  font-bold'>{formvalidateresult}</p>}
+
 
                     <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors duration-300" onClick={(e) => {
                         e.preventDefault();

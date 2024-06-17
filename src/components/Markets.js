@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Loading from './Loading'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { newSymbol } from './utils/symbol'
 const Markets = () => {
     const dispatch =useDispatch()
@@ -9,6 +9,12 @@ const Markets = () => {
         console.log(symbol)
         dispatch(newSymbol(symbol))
     }
+    const DarkMode = useSelector(store => store.theme.isDarkMode)
+    const [isDarkMode, setIsDarkMode] = useState(true);
+    useEffect(() => {
+        setIsDarkMode(DarkMode)
+    
+      }, [DarkMode]);
     useEffect(() => {
         const getMarketData = async () => {
             try {
@@ -40,7 +46,7 @@ const Markets = () => {
         }
     };
     return finanacilaModelData.length < 10 ? <Loading /> : (
-        <div className='bg-black  rounded-lg mt-10 p-8 m-5 w-[450px]'  >
+        <div className={`rounded-lg mt-10 p-8 m-5 w-[450px] hover:scale-110 transition-transform ${isDarkMode ? 'bg-black' : 'bg-gray-300' }`}  >
             <div className='flex flex-row my-1 '>
                 <h1 className='font-medium w-1/4'>Markets</h1>
                 <h1 className='font-medium w-1/4 text-center'>Price</h1>

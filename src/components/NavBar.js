@@ -60,16 +60,16 @@ const NavBar = () => {
   }, []);
 
   return (
-    <div className={`h-full   flex justify-center items-center shadow-2xl border-r ${isDarkMode ? 'bg-black' : 'bg-white '} ${currentBorderColor}`}>
-      <div className=' mt-[-150px] flex flex-col items-center justify-center space-y-10'>
-        <Link to="/"> <IoIosHome className=' h-11 w-11 m-3 cursor-pointer' /></Link>
-        <Link to="/search"> <IoSearch className=' h-11 w-11 m-3 cursor-pointer' /></Link>
-        <MdOutlineBookmarks className=' h-11 w-11 m-3 cursor-pointer' />
-        <IoBookSharp className=' h-11 w-11 m-3 cursor-pointer' />
-        <Link to="/user"><IoSettings className=' h-11 w-11 m-3 cursor-pointer' /></Link>
-
-      </div>
+    <div className={`h-full min-h-screen flex justify-center items-center shadow-2xl border-r ${isDarkMode ? 'bg-black' : 'bg-gray-500 '} ${currentBorderColor}`}>
+    <div className='flex flex-col items-center justify-center space-y-10'>
+      <Link to="/"> <IoIosHome className='h-11 w-11 m-3 cursor-pointer  hover:scale-150 transition-transform' /></Link>
+      <Link to="/search"> <IoSearch className='h-11 w-11 m-3 cursor-pointer hover:scale-150 transition-transform' /></Link>
+      <MdOutlineBookmarks className='h-11 w-11 m-3 hover:scale-150 transition-transform' />
+      <IoBookSharp className='h-11 w-11 m-3  hover:scale-150 transition-transform' />
+      <Link to="/user"><IoSettings className='h-11 w-11 m-3 cursor-pointer hover:scale-150 transition-transform' /></Link>
     </div>
+  </div>
+  
   );
 }
 
