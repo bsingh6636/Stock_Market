@@ -62,7 +62,7 @@ const Markets = () => {
             <h1 className='font-medium w-1/4'>{data.symbol}</h1>
             <h1 className='w-1/4 text-center'>{data.price}</h1>
             <h1 className='w-1/4 text-center max-xl:hidden'>{data.change}</h1>
-            <span className={`w-1/6 ml-5 text-right p-[2px] pr-[4px] rounded-lg  ${getTextColor(data.changesPercentage)}`}>
+            <span className={`w-1/6 ml-5 text-right p-[2px] pr-[4px] rounded-lg max-sm:w-1/4  ${getTextColor(data.changesPercentage)}`}>
               {data.changesPercentage}
             </span>
           </div>

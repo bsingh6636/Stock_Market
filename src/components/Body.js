@@ -7,7 +7,7 @@ import './css/body.css'
 
 const Body = () => {
   return (
-    <div className='body font-mono'>
+    <div className='body font-mono '>
       <div className='flex flex-row max-sm:flex-col'>
         <SentimentIndicator />
         <SectorPerformance />

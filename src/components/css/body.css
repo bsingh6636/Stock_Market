@@ -17,6 +17,7 @@
         margin-left: -30px;
         height: 350px;
      }
+     
   }
  
   @media (max-width : 1450px) {
@@ -52,3 +53,4 @@
             margin: 0 40px 0 40px;
     }
 }
+
