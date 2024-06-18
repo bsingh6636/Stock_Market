@@ -55,7 +55,7 @@ const SentimentIndicator = () => {
             </div>
             <div className="mb-8 px-8 pb-5 max-sm:pb-2">
                 <h1 className="text-sm my-2 mb-4">What you need to know today</h1>
-                <span className=" font-semibold ">{sentimentData.title}</span>
+                <span className=" font-semibold font-mono ">{sentimentData.title}</span>
             </div>
 
         </div>

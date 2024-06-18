@@ -45,7 +45,7 @@ const Header = () => {
   const month = date.toLocaleString('default', { month: 'long' });
   const dayName = date.toLocaleString('default', { weekday: 'long' });
   return (
-    <div className={` max-w-max flex justify-between p-5 rounded-2xl  ${isDarkMode ? 'bg-slate-950 text-white' : 'bg-gray-300 '}
+    <div className={` max-w-max flex justify-between p-5 rounded-2xl font-mono ${isDarkMode ? 'bg-slate-950 text-white' : 'bg-gray-300 '}
      max-sm:p-0 max-sm:mb-10 max-sm:ml-[-35px]   `}>
       <div className='mt-6 max-sm:mt-7'>
         <h1 className='text-2xl font-serif p-4 flex items-center animate-bounce max-sm:p-2 '>Hello, {userName} <FcApproval className='ml-2 ' /></h1>
@@ -70,7 +70,7 @@ const Header = () => {
         </div>
         <div className='flex flex-row mt-10 items-center mx-3 bg-slate-700 rounded-3xl h-11 hover:scale-125  transition-transform max-sm:hidden max-xl:hidden'>
           <FaCompass className='m-4  transition-transform' />
-          <h1 className='mr-4 transition-transform'>For You</h1>
+          <h1 className='mr-4 transition-transform '>For You</h1>
         </div>
         <div className='flex flex-row mt-10 items-center mx-3 bg-slate-700 rounded-3xl h-11 hover:scale-125 transition-transform max-sm:hidden'>
           <PiTelevisionThin className='m-4 ' />
