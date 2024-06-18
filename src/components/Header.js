@@ -49,7 +49,7 @@ const Header = () => {
      max-sm:p-0 max-sm:mb-10 max-sm:ml-[-35px]   `}>
       <div className='mt-6 max-sm:mt-7'>
         <h1 className='text-2xl font-serif p-4 flex items-center animate-bounce max-sm:p-2 '>Hello, {userName} <FcApproval className='ml-2 ' /></h1>
-        <h4 className='text-slate-400 p-4 '>{dayName}, {month} {day}</h4>
+        <h4 className='text-slate-400 p-4 max-sm:ml-[-10px]'>{dayName}, {month} {day}</h4>
       </div>
 
       <div className='headerdiv12 flex flex-row justify-end flex-grow ml-[450px]  max-lg:ml-[100px] '>

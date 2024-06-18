@@ -110,7 +110,7 @@ const RealTimeChart = () => {
 
   const timeUnit = getTimeUnit("1Y");
   return (
-    <div className={`realtimeChart w-[700px] h-[420px] rounded-lg mx-5 p-5 m-10  hover:scale-110 transition-transform ${isDarkMode ? 'bg-black' : 'bg-gray-300'} 
+    <div className={`realtimeChart w-[700px] h-[420px] rounded-lg mx-5 p-5 m-10  hover:scale-110 transition-transform ${isDarkMode ? 'bg-black hover:bg-slate-900' : 'bg-gray-300'} 
     max-xl:w-[500px] `}>
       <Line className='cursor-pointer'
         data={data}
