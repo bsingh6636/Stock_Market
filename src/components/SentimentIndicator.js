@@ -50,8 +50,8 @@ const SentimentIndicator = () => {
     return (
         <div className={`sentimentindicator rounded-lg h-80 w-[450px] mt-10 mx-5 hover:scale-110 transition-transform ${isDarkMode ? 'bg-black hover:bg-slate-900' : 'bg-gray-300'} 
         max-sm:w-72  max-sm:ml-[-30px] max-sm:mt-[-25px]`}>
-            <div className="font-bold mb-8 px-8 py-16 max-sm:py-5">
-                The markets are <span className="text-green-500">{sentimentData.overall_sentiment_label}</span>
+            <div className={`font-bold mb-8 px-8 py-16 max-sm:py-5  text-b`} >
+             <span className= {`p-1 rounded-lg ${isDarkMode ? 'bg-green-300 ' : 'bg-gray-400'} `}>The markets are <span className="text-green-500">{sentimentData.overall_sentiment_label}</span></span>   
             </div>
             <div className="mb-8 px-8 pb-5 max-sm:pb-2">
                 <h1 className="text-sm my-2 mb-4">What you need to know today</h1>

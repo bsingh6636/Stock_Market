@@ -35,7 +35,7 @@ const SectorPerformance = () => {
 
   const getTextColor = (percentage) => {
     if (percentage.startsWith('+')) {
-      return 'text-green-500';
+      return 'text-green-900';
     } else if (percentage.startsWith('-')) {
       return 'text-red-600';
     } else {

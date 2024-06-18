@@ -35,11 +35,11 @@ const Markets = () => {
   const getTextColor = (percentage) => {
     let strPercentage = String(percentage);
     if (strPercentage.startsWith('+')) {
-      return 'text-green-500';
+      return 'text-green-900 bg-green-400 ';
     } else if (strPercentage.startsWith('-')) {
-      return 'text-red-600';
+      return 'text-red-900 bg-red-400  ';
     } else {
-      return 'text-green-500';
+      return 'text-green-500 ';
     }
   };
 
@@ -62,7 +62,7 @@ const Markets = () => {
             <h1 className='font-medium w-1/4'>{data.symbol}</h1>
             <h1 className='w-1/4 text-center'>{data.price}</h1>
             <h1 className='w-1/4 text-center max-xl:hidden'>{data.change}</h1>
-            <span className={`w-1/4 text-right ${getTextColor(data.changesPercentage)}`}>
+            <span className={`w-1/6 ml-5 text-right p-[2px] pr-[4px] rounded-lg  ${getTextColor(data.changesPercentage)}`}>
               {data.changesPercentage}
             </span>
           </div>
