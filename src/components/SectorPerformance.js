@@ -10,18 +10,23 @@ const SectorPerformance = () => {
     setIsDarkMode(DarkMode);
   }, [DarkMode]);
 
-  const [sectorPerformance, setSectorPerformance] = useState([
-    { sector: 'Technology', changesPercentage: '+1.25%' },
-    { sector: 'Healthcare', changesPercentage: '-0.80%' },
-    { sector: 'Financials', changesPercentage: '+0.60%' },
-    { sector: 'Energy', changesPercentage: '-2.15%' },
-    { sector: 'Consumer Discretionary', changesPercentage: '+1.05%' },
-    { sector: 'Industrials', changesPercentage: '+0.45%' },
-    { sector: 'Utilities', changesPercentage: '-0.50%' },
-    { sector: 'Materials', changesPercentage: '+0.30%' },
-    { sector: 'Real Estate', changesPercentage: '-1.20%' },
-    { sector: 'Consumer Staples', changesPercentage: '+0.75%' }
-  ]);
+  const [sectorPerformance, setSectorPerformance] = useState(null);
+
+  useEffect(() => {
+    const getStockPerformance = async () => {
+      try {
+        const response = await fetch(`https://financialmodelingprep.com/api/v3/sectors-performance?apikey=Mb4yrMh82hd2xdVdxMbZRElvcRQTJGaL`);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const json = await response.json();
+        setSectorPerformance(json.slice(0, 10));
+      } catch (error) {
+        console.error("Failed to fetch sector performance data", error);
+      }
+    };
+    getStockPerformance();
+  }, []);
 
   const getBackgroundColor = (percentage) => {
     if (percentage.startsWith('+')) {
