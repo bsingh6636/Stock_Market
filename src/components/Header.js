@@ -48,11 +48,11 @@ const Header = () => {
     <div className={` max-w-max flex justify-between p-5 rounded-2xl font-mono ${isDarkMode ? 'bg-slate-950 text-white' : 'bg-gray-300 '}
      max-sm:p-0 max-sm:mb-10 max-sm:ml-[-35px]   `}>
       <div className='mt-6 max-sm:mt-7'>
-        <h1 className='text-2xl font-serif p-4 flex items-center animate-bounce max-sm:p-2 '>Hello, {userName} <FcApproval className='ml-2 ' /></h1>
+        <h1 className='text-2xl  p-4 flex items-center animate-bounce max-sm:p-2 font-mono'>Hello, {userName} <FcApproval className='ml-2 ' /></h1>
         <h4 className='text-slate-400 p-4 max-sm:ml-[-10px]'>{dayName}, {month} {day}</h4>
       </div>
 
-      <div className='headerdiv12 flex flex-row justify-end flex-grow ml-[450px]  max-lg:ml-[100px] '>
+      <div className='headerdiv12 flex flex-row justify-end flex-grow ml-[410px]  max-lg:ml-[100px] '>
         <div className='flex flex-row mt-[-20px] px-2 items-center cursor-pointer max-sm:mt-8' onClick={toggleDarkMode} >
           <div className={`relative w-16 h-8 bg-gray-300 rounded-full shadow-inner transition-all duration-300 ${isDarkMode ? 'bg-slate-700' : 'bg-slate-200'} max-sm:mt-[-110px]`}  >
             <div className={`absolute top-0.5 left-0.5 w-7 h-7  bg-white rounded-full shadow-md transform transition-transform duration-300 ${isDarkMode ? 'translate-x-8' : 'translate-x-0'}`}

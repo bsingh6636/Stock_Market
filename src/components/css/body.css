@@ -46,4 +46,9 @@
         height: 250px;
      }
   }
- 
+  @media (min-width: 1901px) {
+    .body{
+            padding: 0px 40px 0px 80px; /* Top, Right, Bottom, Left */
+            margin: 0 40px 0 40px;
+    }
+}
