@@ -4,8 +4,9 @@ import { useSelector } from 'react-redux';
 const SentimentIndicator = () => {
     const [sentimentData, setSentimentData] = useState({
         title: "Apple, Nvidia Are The Most Overbought Stocks On Wall Street Amid AI Frenzy: Here Are Other Stocks With Potential For Pullback - Apple  ( NASDAQ:AAPL ) , Broadcom  ( NASDAQ:AVGO ) ",
-        overall_sentiment_label: "Somewhat-bullish"
+        overall_sentiment_label: "Loading........"
     });
+     
     const [allSentimentData, setAllSentimentData] = useState(null)
     const [currentSentimentIndex, setCurrentSentimentIndex] = useState(0);
     const DarkMode = useSelector(store => store.theme.isDarkMode)
@@ -51,7 +52,8 @@ const SentimentIndicator = () => {
         <div className={`sentimentindicator rounded-lg h-80 w-[450px] mt-10 mx-5 hover:scale-110 transition-transform ${isDarkMode ? 'bg-black hover:bg-slate-900' : 'bg-gray-300'} 
         max-sm:w-72  max-sm:ml-[-30px] max-sm:mt-[-25px]`}>
             <div className={`font-bold mb-8 px-8 py-16 max-sm:py-5  text-b`} >
-             <span className= {`p-1 rounded-lg ${isDarkMode ? 'bg-green-300 ' : 'bg-gray-400'} `}>The markets are <span className={`${isDarkMode ? 'text-green-500' : 'text-red-50'}`}>{sentimentData.overall_sentiment_label}</span></span>   
+                {console.log(allSentimentData)}
+             <span className= {`p-1 rounded-lg ${isDarkMode ? 'bg-green-300 ' : 'bg-gray-400'} `}>The markets are <span className={`${isDarkMode ? 'text-green-500' : 'text-red-50'}`}>{allSentimentData ?allSentimentData[0].overall_sentiment_label : sentimentData.overall_sentiment_label}</span></span>   
             </div>
             <div className="mb-8 px-8 pb-5 max-sm:pb-2">
                 <h1 className="text-sm my-2 mb-4">What you need to know today</h1>
