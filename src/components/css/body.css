@@ -2,6 +2,8 @@
     .sectorPerofrmance{
         width: 400px;
         margin-left: 0px;
+       
+     
     }
     
  }
@@ -28,7 +30,8 @@
      .sectorPerofrmance{
         width: 310px ;
         margin-left: -30px;
-
+        /* padding: 0px; */
+       
      }
      .market{
         width: 300px;

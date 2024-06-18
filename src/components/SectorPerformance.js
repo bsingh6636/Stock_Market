@@ -46,7 +46,8 @@ const SectorPerformance = () => {
   return !sectorPerformance ? (
     <Loading />
   ) : (
-    <div className={`sectorPerformance rounded-lg p-5 w-auto max-w-4xl mx-auto mt-10 hover:scale-110 transition-transform ${isDarkMode ? 'bg-black' : 'bg-gray-300 max-xl:w-[600px] max-xl:p-4'}`}>
+    <div className={`sectorPerformance rounded-lg p-5 w-auto max-w-4xl mx-auto mt-10 hover:scale-110 transition-transform ${isDarkMode ? 'bg-black' : 'bg-gray-300  '}
+     max-sm:ml-[-30px] max-sm:p-1 `}>
       <div className='flex justify-between font-bold mb-8 max-sm:w-72 '>
         <h1 className='font-extrabold'>Sector Performance</h1>
         <h4 className='font-extralight'>% Price Change</h4>
