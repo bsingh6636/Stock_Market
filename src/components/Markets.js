@@ -40,7 +40,7 @@ const Markets = () => {
     } else if (strPercentage.startsWith('-')) {
       return 'text-red-900 bg-red-400';
     } else {
-      return 'text-green-500';
+      return 'text-green-900 bg-green-300';
     }
   };
 
