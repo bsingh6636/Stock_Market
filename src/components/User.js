@@ -31,7 +31,7 @@ const User = () => {
         setformvalidateresult(formvalidatione);
         if (formvalidatione) return;
         if (isLogin) {
-            // console.log("Sing in form")
+            // ("Sing in form")
             signInWithEmailAndPassword(auth, email.current.value, password.current.value)
                 .then((userCredential) => {
                     // Signed in 
