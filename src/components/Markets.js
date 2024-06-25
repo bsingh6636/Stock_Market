@@ -57,7 +57,7 @@ const Markets = () => {
         {financialModelData.map((data) => (
           <div
             key={data.symbol}
-            className='flex flex-row my-1 cursor-pointer'
+            className='flex flex-row my-1 cursor-pointer hover:bg-gray-700'
             onClick={() => handlesymbol(data.symbol)}
           >
             <h1 className='font-medium w-1/4'>{data.symbol}</h1>
