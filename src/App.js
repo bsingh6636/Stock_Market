@@ -21,7 +21,7 @@ function App() {
   }, [DarkMode]);
   return (
     
-    <div className={`App flex flex-wrap ${isDarkMode ? 'bg-slate-950 text-white' : 'bg-gray-400 text-black'}`}>
+    <div className={` App flex flex-wrap ${isDarkMode ? 'bg-slate-950 text-white' : 'bg-gray-400 text-black'}`}>
       <Router>
       <div>
       <NavBar/>
